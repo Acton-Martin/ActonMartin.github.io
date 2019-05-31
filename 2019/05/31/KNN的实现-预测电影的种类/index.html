@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="正文写啥呢？就是搭建的hexo搭建成功了呗。还能有啥呢？">
+<meta name="description" content="[TOC] 一、KNN的实现1.预测电影的种类123456789101112131415161718192021222324252627import numpy as npimport operatordef createDataSet():    group = np.array([[1.0,1.1],[1.0,1.0],[0,0],[0,0.1]])    labels = [&amp;apos;A&amp;">
 <meta name="keywords" content="编程,感悟">
 <meta property="og:type" content="article">
-<meta property="og:title" content="github Pages建立成功">
-<meta property="og:url" content="https://github.com/ActonMartin/2019/05/13/hello-world/index.html">
+<meta property="og:title" content="机器学习实战">
+<meta property="og:url" content="https://github.com/ActonMartin/2019/05/31/KNN的实现-预测电影的种类/index.html">
 <meta property="og:site_name" content="咚咚锵小站">
-<meta property="og:description" content="正文写啥呢？就是搭建的hexo搭建成功了呗。还能有啥呢？">
+<meta property="og:description" content="[TOC] 一、KNN的实现1.预测电影的种类123456789101112131415161718192021222324252627import numpy as npimport operatordef createDataSet():    group = np.array([[1.0,1.1],[1.0,1.0],[0,0],[0,0.1]])    labels = [&amp;apos;A&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-27T06:35:02.098Z">
+<meta property="og:updated_time" content="2019-05-31T08:45:23.996Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="github Pages建立成功">
-<meta name="twitter:description" content="正文写啥呢？就是搭建的hexo搭建成功了呗。还能有啥呢？">
+<meta name="twitter:title" content="机器学习实战">
+<meta name="twitter:description" content="[TOC] 一、KNN的实现1.预测电影的种类123456789101112131415161718192021222324252627import numpy as npimport operatordef createDataSet():    group = np.array([[1.0,1.1],[1.0,1.0],[0,0],[0,0.1]])    labels = [&amp;apos;A&amp;">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/ActonMartin/2019/05/13/hello-world/">
+  <link rel="canonical" href="https://github.com/ActonMartin/2019/05/31/KNN的实现-预测电影的种类/">
 
 
 
 
 
-  <title>github Pages建立成功 | 咚咚锵小站</title>
+  <title>机器学习实战 | 咚咚锵小站</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/ActonMartin/2019/05/13/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/ActonMartin/2019/05/31/KNN的实现-预测电影的种类/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ActonMartin">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">github Pages建立成功</h1>
+          <h1 class="post-title" itemprop="name headline">机器学习实战</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-13T20:33:39+08:00">
-                2019-05-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-31T16:28:00+08:00">
+                2019-05-31
               </time>
             
 
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/胡言乱语/" itemprop="url" rel="index">
-                    <span itemprop="name">胡言乱语</span>
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
                   </a>
                 </span>
 
@@ -352,7 +352,12 @@
       
 
       
-        <p>正文写啥呢？就是搭建的hexo搭建成功了呗。还能有啥呢？</p>
+        <p>[TOC]</p>
+<h1 id="一、KNN的实现"><a href="#一、KNN的实现" class="headerlink" title="一、KNN的实现"></a>一、KNN的实现</h1><h4 id="1-预测电影的种类"><a href="#1-预测电影的种类" class="headerlink" title="1.预测电影的种类"></a>1.预测电影的种类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import operator</span><br><span class="line">def createDataSet():</span><br><span class="line">    group = np.array([[1.0,1.1],[1.0,1.0],[0,0],[0,0.1]])</span><br><span class="line">    labels = [&apos;A&apos;,&apos;A&apos;,&apos;B&apos;,&apos;B&apos;]</span><br><span class="line">    return group, labels</span><br><span class="line">def classify(inx, dataSet, labels, k):</span><br><span class="line">    dataSetsize = dataSet.shape[0]</span><br><span class="line">    diffMat = np.tile(inx, (dataSetsize,1)) - dataSet</span><br><span class="line">    sqDiffMat = diffMat**2</span><br><span class="line">    sqDistances = sqDiffMat.sum(axis=1)</span><br><span class="line">    distances = sqDistances**0.5</span><br><span class="line">    sortedDistIndicies = distances.argsort()            #argsort返回数组值的从小到大的索引值</span><br><span class="line">    classCount = &#123;&#125;</span><br><span class="line">    for i in range(k):</span><br><span class="line">        voteIlabels = labels[sortedDistIndicies[i]]</span><br><span class="line">        #dict.get(key, default=None)</span><br><span class="line">        #字典的get，返回键的值，如果不在返回None，这里是返回的数字0，</span><br><span class="line">        #字典本来就是空的，当检查到没有该元素的时候，就加一，这正是为何这里的get之后需要加一</span><br><span class="line">        classCount[voteIlabels] = classCount.get(voteIlabels,0)+1 </span><br><span class="line">    sortedClassCount = sorted(classCount.items(),key=operator.itemgetter(1),reverse=True)</span><br><span class="line">    return sortedClassCount[0][0]</span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">	group, labels = createDataSet()</span><br><span class="line">	test = [1,2]</span><br><span class="line">	test_class = classify(test, group, labels, 3)</span><br><span class="line">	print(test_class)</span><br></pre></td></tr></table></figure>
+
+<p>tips:</p>
+<p>KNN距离公式如下：<br>$$<br>L{p}(X{i},Y{i})=(\sum_{i=1}^{n}\left | X{i}^{(l)}-X{j}^{(l)} \right |^{p})^{\frac{1}{p}}<br>$$<br>对于代码值得注意的地方有   1.np.tile的使用</p>
+<p>​                                                  2.字典get的使用</p>
 
       
     </div>
@@ -385,15 +390,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/05/14/旋转最小矩形/" rel="next" title="一个困扰好久的问题，倾斜图片的旋转">
+                <i class="fa fa-chevron-left"></i> 一个困扰好久的问题，倾斜图片的旋转
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/14/旋转最小矩形/" rel="prev" title="一个困扰好久的问题，倾斜图片的旋转">
-                一个困扰好久的问题，倾斜图片的旋转 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -450,8 +455,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -513,6 +527,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、KNN的实现"><span class="nav-number">1.</span> <span class="nav-text">一、KNN的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-预测电影的种类"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1.预测电影的种类</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
